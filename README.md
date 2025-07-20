@@ -22,3 +22,55 @@ Citeseer 数据集：
 <img width="4800" height="1800" alt="Citeseer_comparison" src="https://github.com/user-attachments/assets/818d48b6-eb4f-4fba-8d5a-bbab60ffbab6" />
 <img width="4800" height="1800" alt="Cora_comparison" src="https://github.com/user-attachments/assets/ac2d2147-4a92-4649-a9d9-7243d574e51c" />
 
+## task2 图上的链路预测
+### 数据集描述
+使用Cora, Citeseer数据集
+
+Cora 数据集：
+包含 2708 篇科学出版物，有 5429 条边用于表示论文之间的引用关系。
+论文主题分为 7 类，分别是基于案例、遗传算法、神经网络、概率方法、强化学习、规则学习和理论。
+每个出版物由一个 0/1 值的词向量描述，该词典由 1433 个独特的词组成，即特征维度为 1433 维，1 表示对应词在论文中出现，0 表示未出现。
+主要包含 cora.content 和 cora.cites 两个文件。前者包含论文描述，每行是论文编号、1433 维词向量和论文类别；后者包含论文引用关系，每行有两个论文编号，表示引用与被引用关系。
+广泛用于文本分类、图神经网络等领域的研究，帮助研究者探索如何利用文本信息和引用网络结构进行论文分类。
+
+Citeseer 数据集：
+由 3327 篇学术论文组成，形成了包含 4732 条边的引用网络。
+论文分为 6 类，分别是 Agents、AI、DB、IR、ML 和 HCI。
+每个节点（论文）有一个 3703 维的二进制特征向量，采用词袋模型表示，值为 1 表示对应词在论文中出现，为 0 表示未出现。
+与 Cora 类似，包含 citeseer.content 和 citeseer.cites 两个文件，前者记录论文 ID、特征向量和类别标签，后者记录论文间引用关系。
+是图神经网络研究中常用的基准数据集，特别是用于节点分类任务。
+
+### 实验结果
+<img width="4800" height="1800" alt="Cora_comparison" src="https://github.com/user-attachments/assets/3c4dbb5a-290a-4d04-944b-406973cb9795" />
+<img width="4800" height="1800" alt="Citeseer_comparison" src="https://github.com/user-attachments/assets/0b8e0846-ec48-4f7a-9280-3958d45055b2" />
+
+## task3 图分类
+### 数据集描述
+TUDataset：
+由多特蒙德工业大学收集，包含多种不同的图数据集。
+是一系列图分类的 benchmark 数据集，可用于训练和评估图分类模型。数据集中每个图通常表示一种分子结构，包含节点特征、边索引等信息，节点特征矩阵形状为(num_nodes, num_node_features)，边索引矩阵形状为(2, num_edges)。
+包含多个子集，如MUTAG、ENZYMES等。其中MUTAG数据集有 188 个图，每个图有 7 个特征，2 个类别，平均节点数为 17，平均边数为 38；ENZYMES数据集有 600 个图，4 个类别，每个节点具有 34 维的特征向量。
+主要用于图分类任务，如推断分子是否具有某种性质，常用于机器学习和图神经网络相关的研究和实验，帮助研究者验证算法在图数据上的分类性能。
+
+ZINC 数据集：
+由美国加利福尼亚大学旧金山分校药物化学系的 Shoichet 实验室提供，收录了 ChemBridge、Enamine 和 PubChem 等众多化合物数据。
+是一个大规模的小分子结构数据库，包含超过 2.3 亿种可购买的即用型 3D 格式化合物，还包含超过 7.5 亿种可用于搜索类似物的可购买化合物。数据集涵盖了超过 250 万个有机小分子，包含片段库、类药性库、药物库、天然产物库等。每个分子包含供应商、分子量、可旋转键数、氢键受体及供体等信息，并提供二维和三维结构表示。
+由 John J. Irwin 和 Brian K. Shoichet 于 2005 年创建，定期更新，最近一次重大更新发生在 2020 年，以确保其内容的时效性和多样性。
+广泛应用于药物发现、化学合成和分子模拟等领域。研究人员可通过该数据库筛选符合特定条件的分子，进行虚拟筛选和先导化合物优化，也可用于分子性质预测或生成任务等。
+
+### 实验结果
+<img width="4800" height="1800" alt="TU_MUTAG_comparison" src="https://github.com/user-attachments/assets/14415bce-5c48-44c8-8c34-b77b6056fefa" />
+<img width="4800" height="1800" alt="TU_PROTEINS_comparison" src="https://github.com/user-attachments/assets/21b14893-f757-4d38-b823-ffb8b37a8a29" />
+
+## task4 知识图谱
+### 数据集描述
+FB15K-237 是一个广泛应用于知识图谱研究的数据集，是 Freebase 的子集
+包含约 14505 个实体，474 种关系（考虑正反关系，若不考虑则为 237 种），共 544230 个三元组。其被拆分为训练集、验证集和测试集，训练集有 272115 个三元组，验证集有 17535 个三元组，测试集有 20466 个三元组。
+去除了 FB15K 数据集中一些不常用的关系，使得数据集更加精简，减少了训练模型时的偏差，同时采用了负例采样技术。
+涵盖 “出生地”“作品”“职业” 等多种关系，能模拟复杂的信息结构，可用于研究如何推断新事实，尤其在处理长尾分布下的稀有关系时表现出色。
+移除了反向关系三元组，解决了原始 FB15K 中存在的逆向推理问题，使得评估更加严格和真实，对模型泛化能力要求更高。
+常被用于评估和开发链接预测算法，在推荐系统、问答系统、搜索引擎优化等多个领域都有广泛应用。研究者可通过在该数据集上实验，探索如何更好地捕捉实体之间的复杂关联，提高知识图谱的准确性和完整性。
+
+### 实验结果
+<img width="3000" height="1800" alt="TransE_test_metrics" src="https://github.com/user-attachments/assets/eb0f130d-bee9-41d9-90e1-0e8764bedaaa" />
+<img width="3000" height="1800" alt="TransE_loss" src="https://github.com/user-attachments/assets/09dc1c64-c3f6-45b1-be9a-f4bf07bee7af" />
